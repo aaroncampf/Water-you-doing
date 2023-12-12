@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <h1>Water-you Doin?</h1>
+      
     </>
   )
 }
