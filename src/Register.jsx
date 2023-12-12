@@ -21,7 +21,7 @@ export default function Register () {
             <h3>Confirm Password</h3>
             <input type = "password"></input>
 
-            <button>Submit</button>
+            <button>Register</button>
         </div>
     )
 }
