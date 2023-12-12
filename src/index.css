@@ -96,4 +96,18 @@ button:focus-visible {
     color: white;
     font-weight: bold;
   }
+
+  .circle-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .grey-circle {
+    width: 200px;
+    height: 200px;
+    background-color: grey;
+    border-radius: 50%;
+  }
 }
