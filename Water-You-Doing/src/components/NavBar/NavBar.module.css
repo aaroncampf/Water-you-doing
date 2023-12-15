@@ -1,50 +1,55 @@
 /* NavBar.module.css */
-.navbar-container {
-    background-color: #333;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {
+    display: none;
   }
-  
-  @media (max-width: 600px) {
-    .navbar-container {
-      flex-direction: column;
-      align-items: flex-start;
-    }
+  .topnav a.icon {
+    float: right;
+    display: block;
   }
-  
-  .nav-list {
-    list-style: none;
-    display: flex;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {
+    position: relative;
   }
-  
-  @media (max-width: 600px) {
-    .nav-list {
-      flex-direction: column;
-      align-items: flex-start;
-      margin-top: 10px;
-    }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
   }
-  
-  .nav-item {
-    margin-right: 20px;
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
   }
-  
-  @media (max-width: 600px) {
-    .nav-item {
-      margin-bottom: 10px;
-    }
-  }
-  
-  .nav-link {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-  }
-  
-  .nav-link:hover {
-    text-decoration: underline;
-  }
-  
+}
