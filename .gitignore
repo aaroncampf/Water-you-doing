@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# But not the src/ directory
+!src/
+!.gitignore
+
+# Ignore files and directories inside src/ that should be excluded
+# For example, if you want to exclude a test folder inside src/, add:
+# !src/test/
