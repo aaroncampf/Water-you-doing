@@ -16,6 +16,7 @@ const NavBar = () => {
       <Link to="/" className={styles.active}>Home</Link>
       <Link to="/analytics">Analytics</Link>
       <Link to="/settings">Settings</Link>
+      <Link to="/registeruser">Register User</Link>
       <a href="javascript:void(0);" className={styles.icon} onClick={handleToggle}>
         <i className="fa fa-bars"></i>
       </a>
