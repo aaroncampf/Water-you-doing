@@ -1,6 +1,7 @@
 // Settings.jsx
 import React, { useState, useEffect } from 'react';
 import ColorThemeDropdown from '../Dropdown/Dropdown';
+import ProfileForm from '../Forms/ProfileForm';
 import styles from '../Dropdown/styles.module.css';
 
 const Settings = () => {
@@ -23,6 +24,7 @@ const Settings = () => {
   return (
     <div>
       <h2>Settings Page</h2>
+      <ProfileForm />
       <p>Select App Theme:</p>
       <ColorThemeDropdown themes={themes} selectedTheme={selectedTheme} onChange={handleThemeChange} />
     </div>
