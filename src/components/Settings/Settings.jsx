@@ -1,6 +1,7 @@
 // Settings.jsx
-import React, { useState } from 'react';
-import ColorThemeDropdown from '../DropDown/DropDown'; 
+import React, { useState, useEffect } from 'react';
+import ColorThemeDropdown from '../Dropdown/Dropdown';
+import styles from '../Dropdown/styles.module.css';
 
 const Settings = () => {
   const [selectedTheme, setSelectedTheme] = useState('default');
@@ -13,8 +14,11 @@ const Settings = () => {
 
   const handleThemeChange = (event) => {
     setSelectedTheme(event.target.value);
-    // You can add logic here to apply the selected theme to your app
   };
+
+  useEffect(() => {
+    document.body.setAttribute('data-theme', selectedTheme);
+  }, [selectedTheme]);
 
   return (
     <div>
