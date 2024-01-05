@@ -6,6 +6,7 @@ import styles from '../Dropdown/styles.module.css';
 
 const Settings = () => {
   const [selectedTheme, setSelectedTheme] = useState('default');
+  
 
   const themes = [
     { value: 'default', label: 'Default Theme' },
