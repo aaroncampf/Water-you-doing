@@ -1,0 +1,37 @@
+/* styles.module.css */
+:root {
+    --clr-body-bg-default: #ffffff;
+    --clr-card-bg-default: #ffffff;
+    --clr-text-default: #333333;
+    --clr-heading-default: #555555;
+  
+    --clr-body-bg-dark: hsl(209 50% 10%);
+    --clr-card-bg-dark: hsl(209 50% 5%);
+    --clr-text-dark: hsl(209 50% 90%);
+    --clr-heading-dark: hsl(209 50% 80%);
+  
+    --clr-body-bg-light: #f0f0f0;
+    --clr-card-bg-light: #ffffff;
+    --clr-text-light: #000000;
+    --clr-heading-light: #333333;
+  }
+  
+  body {
+    background-color: var(--clr-body-bg-default);
+    color: var(--clr-text-default);
+  }
+  
+  /* Add more styles as needed */
+  
+  /* Dark Theme */
+  body[data-theme="dark"] {
+    background-color: var(--clr-body-bg-dark);
+    color: var(--clr-text-dark);
+  }
+  
+  /* Light Theme */
+  body[data-theme="light"] {
+    background-color: var(--clr-body-bg-light);
+    color: var(--clr-text-light);
+  }
+  
