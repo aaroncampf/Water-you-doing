@@ -43,7 +43,7 @@ const Settings = () => {
 
       <p>Select Reminder Interval:</p>
       <select value={reminderInterval} onChange={handleIntervalChange}>
-        <option value={15}>15 minutes</option>
+        <option value={1}>1 minute</option>
         <option value={30}>30 minutes</option>
         <option value={60}>1 hour</option>
       </select>

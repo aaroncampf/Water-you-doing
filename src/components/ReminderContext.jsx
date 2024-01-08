@@ -11,16 +11,20 @@ export const ReminderProvider = ({ children }) => {
   let reminderTimer;
 
   const showNotification = () => {
-if ('Notification' in window) {
-    Notification.requestPermission().then((permission) => {
-      if (permission === 'granted') {
-        new Notification('Drink Water Reminder', {
-          body: 'Take a break and drink some water!',
-        });
-      }
-    });
-  }  
-};
+    if ('Notification' in window) {
+      Notification.requestPermission().then((permission) => {
+        if (permission === 'granted') {
+          const notification = new Notification('Drink Water Reminder', {
+            body: 'Take a break and drink some water!',
+          });
+  
+          notification.addEventListener('click', () => {
+            window.location.href = '/';
+          });
+        }
+      });
+    }
+  };
 
   useEffect(() => {
     reminderTimer = setInterval(() => {
