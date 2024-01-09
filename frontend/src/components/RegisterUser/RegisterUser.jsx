@@ -19,7 +19,7 @@ function RegisterUser({ events }) {
       password: password,
     };
 
-    fetch('http://localhost:8080/register/', {
+    fetch('http://localhost:8000/register/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

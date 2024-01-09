@@ -10,12 +10,12 @@ const NavBar = () => {
     setResponsive(!responsive);
   };
 
-  //TODO set up responsiveness 
   return (
     <div className={`${styles.topnav} ${responsive ? styles.responsive : ''}`}>
       <Link to="/" className={styles.active}>Home</Link>
-      <Link to="/analytics">Analytics</Link>
       <Link to="/settings">Settings</Link>
+      <Link to="/signup">Sign Up</Link>
+      <Link to="/login">Login</Link>
       <a href="javascript:void(0);" className={styles.icon} onClick={handleToggle}>
         <i className="fa fa-bars"></i>
       </a>

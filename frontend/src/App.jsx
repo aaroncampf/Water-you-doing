@@ -28,11 +28,10 @@ const App = () => {
       <ReminderProvider>
         <div>
           <NavBar />
-          {isNewUser && <RegisterUser events={{ handleUserLogin, handleNewUser }} />}
-        {!isNewUser && loggedInUser === "" && <Login events={{ handleUserLogin, handleNewUser }} />}
           <Routes>
-            <Route path="/analytics" element={<Analytics />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/signup" element={<RegisterUser events={{ handleUserLogin, handleNewUser }} />} />
+            <Route path="/login" element={<Login events={{ handleUserLogin, handleNewUser }} />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </div>
