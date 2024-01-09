@@ -14,9 +14,11 @@ const Settings = () => {
     { value: 'light', label: 'Light Theme' },
   ];
 
-  const handleThemeChange = (event) => {
+  const handleThemeChange = async (event) => {
     setSelectedTheme(event.target.value);
   };
+
+  
 
   const handleIntervalChange = (event) => {
     setReminderInterval(parseInt(event.target.value, 10));
