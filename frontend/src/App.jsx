@@ -7,6 +7,7 @@ import Analytics from './components/Analytics/Analytics';
 import Settings from './components/Settings/Settings';
 import { ReminderProvider } from './components/ReminderContext';
 import RegisterUser from './components/RegisterUser/RegisterUser';
+import Login from './components/Login';
 
 const App = () => {
   const [loggedInUser,setLoggedInUser] = useState("");

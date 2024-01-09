@@ -1,8 +1,6 @@
-// RegisterUser.jsx
 import React from 'react';
 import { useState } from "react";
-
-import './RegisterUser.css'
+import './RegisterUser.css';
 
 
 function RegisterUser({events}) {
@@ -25,7 +23,7 @@ function RegisterUser({events}) {
       password: password
   };
   
-  fetch('http://localhost:8080/RegisterUser', {
+  fetch('http://localhost:8080/register/', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
