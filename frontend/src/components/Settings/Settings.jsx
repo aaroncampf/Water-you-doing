@@ -6,8 +6,9 @@ import styles from '../Dropdown/styles.module.css';
 
 const Settings = () => {
   const { reminderInterval, setReminderInterval } = useReminderContext();
-  const [selectedTheme, setSelectedTheme] = useState('default'); // Add this line
-
+  const [selectedTheme, setSelectedTheme] = useState('default');
+  const [waterGoal, setWaterGoal] = useState(8);
+  
   const themes = [
     { value: 'default', label: 'Default Theme' },
     { value: 'dark', label: 'Dark Theme' },
@@ -20,6 +21,10 @@ const Settings = () => {
 
   const handleIntervalChange = (event) => {
     setReminderInterval(parseInt(event.target.value, 10));
+  };
+
+  const handleWaterGoalChange = (event) => {
+    setWaterGoal(parseInt(event.target.value, 10));
   };
 
   useEffect(() => {
@@ -38,6 +43,16 @@ const Settings = () => {
     <div>
       <h2>Settings Page</h2>
       <ProfileForm />
+
+      <p>Select Daily Water Goal:</p>
+      <select value={waterGoal} onChange={handleWaterGoalChange}>
+        {[...Array(8).keys()].map((i) => (
+           <option key={i + 1} value={(i + 1) * 8}>
+           {(i + 1) * 8} ounces
+          </option>
+        ))}
+      </select>
+
       <p>Select App Theme:</p>
       <ColorThemeDropdown themes={themes} selectedTheme={selectedTheme} onChange={handleThemeChange} />
 
