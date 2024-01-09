@@ -11,25 +11,25 @@ import Login from './components/Login';
 
 const App = () => {
   const [loggedInUser,setLoggedInUser] = useState("");
-  const [isNewUser, setNewUser] = useState(false);
+  const [isNewUser, setNewUser] = useState(true);
 
   const handleUserLogin = (loggedInUser) => {
-   
     setLoggedInUser(loggedInUser);
   } 
 
   const handleNewUser = (newUser) => {
-    
     setNewUser(newUser);
   }
+
+  console.log('isNewUser:', isNewUser);
+  
   return (
     <Router>
       <ReminderProvider>
         <div>
-        {(isNewUser) ? <RegisterUser events={{handleUserLogin,handleNewUser}}/> : 
-        (loggedInUser == "" ? <Login events={{handleUserLogin,handleNewUser}}/> : <NavBar />)
-        }
           <NavBar />
+          {isNewUser && <RegisterUser events={{ handleUserLogin, handleNewUser }} />}
+        {!isNewUser && loggedInUser === "" && <Login events={{ handleUserLogin, handleNewUser }} />}
           <Routes>
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/settings" element={<Settings />} />
