@@ -1,14 +1,13 @@
-/* styles.module.css */
 :root {
     --clr-body-bg-default: #ffffff;
     --clr-card-bg-default: #ffffff;
     --clr-text-default: #333333;
     --clr-heading-default: #555555;
   
-    --clr-body-bg-dark: hsl(209 50% 10%);
-    --clr-card-bg-dark: hsl(209 50% 5%);
-    --clr-text-dark: hsl(209 50% 90%);
-    --clr-heading-dark: hsl(209 50% 80%);
+    --clr-body-bg-dark: #303336;
+    --clr-card-bg-dark: #303336;
+    --clr-text-dark: #E6E8ED;
+    --clr-heading-dark: #E6E8ED;
   
     --clr-body-bg-light: #f0f0f0;
     --clr-card-bg-light: #ffffff;
@@ -34,4 +33,3 @@
     background-color: var(--clr-body-bg-light);
     color: var(--clr-text-light);
   }
-  

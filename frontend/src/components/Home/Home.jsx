@@ -4,30 +4,17 @@ import React, { useState } from 'react';
 const Home = () => {
   const [amount, setAmount] = useState(0);
 
+  // TODO: connect to database
+  // TODO: create logic that refreshes water intake at the end of every day
   const handleWaterConsumption = (amount) => {
-    fetch('http://localhost:8000/update_water_consumption/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRFToken': window.csrf_token,
-      },
-      body: JSON.stringify({ amount }),
+    fetch('http://127.0.0.1:8000/water/', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-CSRFToken': window.csrf_token,
+  },
+  body: JSON.stringify({ amount }),
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log(data.message);
-    })
-    .catch(error => {
-      console.error('Error updating water consumption:', error);  
-      response.text().then(text => {
-        console.error('Full response:', text);
-      });
-    });
   };
 
   return (

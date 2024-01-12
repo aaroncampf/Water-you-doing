@@ -1,11 +1,12 @@
-// ColorThemeDropdown.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../DropDown/dropdown.module.css';
+import styles from '../buttonStyles.module.css';
 
 const ColorThemeDropdown = ({ themes, selectedTheme, onChange }) => {
+  const dropdownClass = `${styles.dropdown} ${styles[selectedTheme]}`;
+
   return (
-    <select value={selectedTheme} onChange={onChange}>
+    <select className={dropdownClass} value={selectedTheme} onChange={onChange}>
       {themes.map((theme) => (
         <option key={theme.value} value={theme.value}>
           {theme.label}
@@ -26,4 +27,4 @@ ColorThemeDropdown.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-export default ColorThemeDropdown; 
+export default ColorThemeDropdown;

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useReminderContext } from '../ReminderContext';
 import ColorThemeDropdown from '../DropDown/ColorDropdown';
 import ProfileForm from '../Forms/ProfileForm';
-import styles from '../Dropdown/styles.module.css';
+import themeStyles from '../Dropdown/styles.module.css';
+import buttonStyles from '../buttonStyles.module.css';
 
 const Settings = () => {
   const { reminderInterval, setReminderInterval } = useReminderContext();
