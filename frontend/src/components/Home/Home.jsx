@@ -7,7 +7,7 @@ const Home = () => {
   // TODO: connect to database
   // TODO: create logic that refreshes water intake at the end of every day
   const handleWaterConsumption = (amount) => {
-    fetch('http://127.0.0.1:8000/water/', {
+    fetch('http://127.0.0.1:8000/api/water/', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',

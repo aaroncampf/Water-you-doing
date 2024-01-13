@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useReminderContext } from '../ReminderContext';
 import ColorThemeDropdown from '../DropDown/ColorDropdown';
 import ProfileForm from '../Forms/ProfileForm';
-import themeStyles from '../Dropdown/styles.module.css';
-import buttonStyles from '../buttonStyles.module.css';
+import styles from '../styles.module.css';
 
-const Settings = () => {
+
+const Settings = ({ onGlobalThemeChange }) => {
   const { reminderInterval, setReminderInterval } = useReminderContext();
   const [selectedTheme, setSelectedTheme] = useState('default');
   const [waterGoal, setWaterGoal] = useState(8);
@@ -17,7 +17,9 @@ const Settings = () => {
   ];
 
   const handleThemeChange = (event) => {
-    setSelectedTheme(event.target.value);
+    const newTheme = event.target.value;
+    setSelectedTheme(newTheme);
+    onGlobalThemeChange(newTheme);
   };
 
   const handleIntervalChange = (event) => {
@@ -27,6 +29,8 @@ const Settings = () => {
   const handleWaterGoalChange = (event) => {
     setWaterGoal(parseInt(event.target.value, 10));
   };
+
+  
 
   useEffect(() => {
     if ('Notification' in window) {
@@ -46,7 +50,7 @@ const Settings = () => {
       <ProfileForm />
 
       <p>Select Daily Water Goal:</p>
-      <select value={waterGoal} onChange={handleWaterGoalChange}>
+      <select className={styles.dropdown} value={waterGoal} onChange={handleWaterGoalChange}>
         {[...Array(8).keys()].map((i) => (
            <option key={i + 1} value={(i + 1) * 8}>
            {(i + 1) * 8} ounces
@@ -58,7 +62,7 @@ const Settings = () => {
       <ColorThemeDropdown themes={themes} selectedTheme={selectedTheme} onChange={handleThemeChange} />
 
       <p>Select Reminder Interval:</p>
-      <select value={reminderInterval} onChange={handleIntervalChange}>
+      <select className={styles.dropdown} value={reminderInterval} onChange={handleIntervalChange}>
         <option value={1}>1 minute</option>
         <option value={30}>30 minutes</option>
         <option value={60}>1 hour</option>

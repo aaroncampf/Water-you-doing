@@ -12,14 +12,14 @@ function RegisterUser({ events }) {
 
   function clickRegisterUser(e) {
     const payload = {
-      fname: firstName,
-      lname: lastName,
-      email: email,
-      userID: userID,
+      username: userID,
       password: password,
+      email: email,
+      first_name: firstName,
+      last_name: lastName
     };
 
-    fetch('http://localhost:8000/register/', {
+    fetch('http://localhost:8000/api/register/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

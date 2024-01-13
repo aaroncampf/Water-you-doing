@@ -7,8 +7,9 @@ const Login = ({ events }) => {
   const { handleUserLogin, handleNewUser } = events;
 
   const handleClickLogin = async (e) => {
+    e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8000/login/', {
+      const response = await fetch('http://localhost:8000/api/login/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -21,12 +22,13 @@ const Login = ({ events }) => {
       if (response.ok) {
         handleUserLogin(data.user_id);
         handleNewUser(false);
+        alert('Logged in successfully');
       } else {
         alert('Invalid login credentials');
       }
     } catch (error) {
-      console.error('Error during login:', error);
-      alert('Error during login');
+      console.error('Error during login: ', error.message);
+      alert('Error during login: ' + error.message);
     }
   };
 

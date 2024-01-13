@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styles from '../buttonStyles.module.css';
+import styles from '../styles.module.css';
 
 const ColorThemeDropdown = ({ themes, selectedTheme, onChange }) => {
-  const dropdownClass = `${styles.dropdown} ${styles[selectedTheme]}`;
+  const themeClass = selectedTheme.toLowerCase();
 
   return (
-    <select className={dropdownClass} value={selectedTheme} onChange={onChange}>
+    <select className={`${styles.dropdown} ${styles[themeClass]}`} value={selectedTheme} onChange={onChange}>
       {themes.map((theme) => (
         <option key={theme.value} value={theme.value}>
           {theme.label}
@@ -14,17 +13,6 @@ const ColorThemeDropdown = ({ themes, selectedTheme, onChange }) => {
       ))}
     </select>
   );
-};
-
-ColorThemeDropdown.propTypes = {
-  themes: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  selectedTheme: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
 };
 
 export default ColorThemeDropdown;
