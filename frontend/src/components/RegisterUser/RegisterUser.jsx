@@ -7,6 +7,8 @@ function RegisterUser({ events }) {
   const [email, setEmail] = useState('');
   const [userID, setUserID] = useState('');
   const [password, setPassword] = useState('');
+  const [waterDrank, setWaterDrank] = useState('');
+
 
   const { handleUserLogin, handleNewUser } = events;
 
@@ -16,7 +18,8 @@ function RegisterUser({ events }) {
       password: password,
       email: email,
       first_name: firstName,
-      last_name: lastName
+      last_name: lastName,
+      water_drank: waterDrank
     };
 
     fetch('http://localhost:8000/api/register/', {
@@ -101,6 +104,17 @@ function RegisterUser({ events }) {
                   type="password"
                 />
               </td>
+              <tr>
+                <td>Did you drink water today</td>
+                <td>
+                  <input
+                    placeholder="Did you drink water today"
+                    value={waterDrank}
+                    onChange={(e) => setWaterDrank(e.target.value)}
+                    type="text"
+                  />
+               </td>
+              </tr>
             </tr>
             <tr>
               <td colSpan={2}>
