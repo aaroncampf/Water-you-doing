@@ -1,7 +1,8 @@
 // NavBar.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from "../styles.module.css"; 
+import styles from "../styles.module.css";
+import UserCount from '../UserCount/UserCount'; 
 
 const NavBar = () => {
   const [responsive, setResponsive] = useState(false);
@@ -16,6 +17,7 @@ const NavBar = () => {
       <Link to="/settings">Settings</Link>
       <Link to="/register">Sign Up</Link>
       <Link to="/login">Login</Link>
+      <UserCount/>
       <a href="javascript:void(0);" className={styles.icon} onClick={handleToggle}>
         <i className="fa fa-bars"></i>
       </a>
