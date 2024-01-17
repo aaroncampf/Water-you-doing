@@ -32,7 +32,6 @@ class UserLoginView(ObtainAuthToken):
 
 @require_POST
 @require_GET  # Add this decorator to handle GET requests
-@login_required
 def UpdateWaterConsumption(request):
    if request.method == 'POST':
        data = json.loads(request.body)
