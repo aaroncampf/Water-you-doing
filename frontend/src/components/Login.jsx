@@ -8,17 +8,20 @@ const Login = ({ events }) => {
 
   const handleClickLogin = async (e) => {
     e.preventDefault();
+  
+    let response;
+  
     try {
-      const response = await fetch('http://localhost:8000/api/login/', {
+      response = await fetch('http://localhost:8000/api/login/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ username, password }),
       });
-
+  
       const data = await response.json();
-
+  
       if (response.ok) {
         handleUserLogin(data.user_id);
         handleNewUser(false);
@@ -28,9 +31,15 @@ const Login = ({ events }) => {
       }
     } catch (error) {
       console.error('Error during login: ', error.message);
-      alert('Error during login: ' + error.message);
+  
+      if (response && response.status === 401) {
+        alert('Invalid login credentials');
+      } else {
+        alert('Error during login. Please try again.');
+      }
     }
   };
+  
 
   return (
     <div>

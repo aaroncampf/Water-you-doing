@@ -104,7 +104,7 @@ function RegisterUser({ events }) {
                   type="password"
                 />
               </td>
-              <tr>
+              {/* <tr>
                 <td>Did you drink water today</td>
                 <td>
                   <input
@@ -114,7 +114,7 @@ function RegisterUser({ events }) {
                     type="text"
                   />
                </td>
-              </tr>
+              </tr> */}
             </tr>
             <tr>
               <td colSpan={2}>
