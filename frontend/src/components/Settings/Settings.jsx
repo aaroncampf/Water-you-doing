@@ -46,9 +46,10 @@ const Settings = ({ onGlobalThemeChange }) => {
 
   return (
     <div>
-      <h2>Settings Page</h2>
+      <h2>Settings</h2>
+      <br />
       <ProfileForm />
-
+      <br />
       <p>Select Daily Water Goal:</p>
       <select className={styles.dropdown} value={waterGoal} onChange={handleWaterGoalChange}>
         {[...Array(8).keys()].map((i) => (
@@ -57,10 +58,10 @@ const Settings = ({ onGlobalThemeChange }) => {
           </option>
         ))}
       </select>
-
+      <br />
       <p>Select App Theme:</p>
       <ColorThemeDropdown themes={themes} selectedTheme={selectedTheme} onChange={handleThemeChange} />
-
+      <br />
       <p>Select Reminder Interval:</p>
       <select className={styles.dropdown} value={reminderInterval} onChange={handleIntervalChange}>
         <option value={1}>1 minute</option>

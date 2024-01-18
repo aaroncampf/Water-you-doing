@@ -15,12 +15,12 @@ body {
 
 .dark {
   background-color: #303336;
-  color: hsl(209 50% 90%);
+  color: #E6E8ED;
 }
 
 .light {
   background-color: #f0f0f0;
-  color: #000000;
+  color: #303336;
 }
 
 .dropdown {
@@ -38,7 +38,19 @@ body {
 
 .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: #60B9EB;
+  }
+
+  .dark .topnav {
+    overflow: hidden;
+    background-color: inherit;
+    color: inherit;
+  }
+
+  .light .topnav {
+    overflow: hidden;
+    background-color: #60B9EB;
+    color: inherit;
   }
   
   .topnav a {
@@ -53,7 +65,12 @@ body {
   
   .topnav a:hover {
     background-color: #ddd;
-    color: black;
+    color: #303336;
+  }
+
+  .light .topnav a:hover {
+    background-color: #AEC0A8;
+    color: #f0f0f0;
   }
   
   .topnav .icon {
