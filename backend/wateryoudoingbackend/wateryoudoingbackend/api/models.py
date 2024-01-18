@@ -13,5 +13,5 @@ class Transaction(models.Model):
 
 class WaterIntake(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.DateField()
     ounces = models.IntegerField()
+    date = models.DateField(auto_now_add=True)
