@@ -7,8 +7,9 @@ from django.contrib.auth.decorators import login_required
 from .serializers import UserSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
 from datetime import date
-import json
-from .models import WaterConsumption
+from django.shortcuts import render, redirect
+from .models import WaterIntake
+
 
 class UserRegistrationView(generics.CreateAPIView):
     queryset = User.objects.all()
@@ -30,28 +31,16 @@ class UserLoginView(ObtainAuthToken):
         return Response({'user_id': user.id})
 
 
-@require_POST
-@require_GET  # Add this decorator to handle GET requests
-def UpdateWaterConsumption(request):
-   if request.method == 'POST':
-       data = json.loads(request.body)
-       amount = data.get('amount')
-       user = request.user
-       today = date.today()
+@login_required
+def home(request):
+    user = request.user
+    today = date.today()
+    water_intake, created = WaterIntake.objects.get_or_create(user=user, date=today)
 
+    if request.method == 'POST':
+        ounces = int(request.POST.get('ounces', 0))
+        water_intake.ounces += ounces
+        water_intake.save()
 
-       water_consumption, created = WaterConsumption.objects.get_or_create(
-           user=user,
-           date=today,
-           defaults={'amount': amount}
-       )
-       
-       if not created:
-           water_consumption.amount = amount
-           water_consumption.save()
+    return render(request, 'home.html', {'water_intake': water_intake})
 
-
-       return JsonResponse({'message': 'Water intake updated successfully.'})
-   elif request.method == 'GET':
-       # Handle GET requests, e.g., return some information or a form
-       return JsonResponse({'message': 'This is a GET request. Consider sending a POST request to update water intake.'})
