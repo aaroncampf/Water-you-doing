@@ -47,6 +47,8 @@ function RegisterUser({ events }) {
 
   return (
     <form className="RegisterUser">
+      <h2>Register for an account!</h2>
+      <br />
       <div className="RegisterUserDiv">
         <table border="1">
           <tbody>
